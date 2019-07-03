@@ -1,6 +1,47 @@
-<h2>用户登入</h2>
-<form method="post" action="/user/login">
-用户：<input type="text" name="uname"><br>
-密码：<input type="text" name="upwd"><br>
-<input type="submit">
-</form>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	a{text-decoration:none}
+</style>
+</head>
+
+<body>
+	<h2>欢迎登录</h2>
+	<form method="post" action="/user/login">
+		<table align="center" bgcolor="#777" width="250px" height="250px" >
+			<tr>
+				<td>
+					<strong>
+						<font color="#fff">登录学子商城</font>
+					</strong>
+				</td>
+				<td align="right">
+					<a href="user_reg.html"><font color="#fff">新用户注册</font></a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<hr>
+				</td>
+				
+			</tr>
+			<tr>
+				<td colspan="2"><input type="text" name="uname" placeholder="请输入您的用户名"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="password" name="upwd" placeholder="请输入您的密码"></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="yes" id="q1"><label for="q1"><font color="#fff">自动登入</font></label></td>
+				<td align="right"><a href=""><font color="#fff">忘记密码?</font></a></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><button>登录</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
