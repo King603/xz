@@ -4,14 +4,17 @@
 <meta charset="utf-8">
 <title>无标题文档</title>
 <style>
-	a{text-decoration:none}
+	div{margin:0;padding:0;}
+	ul{list-style:none;margin:0;padding:0;font-family:"simhei"}
+	a{text-decoration:none;color:#fff;}
 </style>
 </head>
 
 <body>
+	<iframe width="100%" src="./header.html" frameborder="0"></iframe>
 	<h2>欢迎登录</h2>
 	<form method="post" action="/user/login">
-		<table align="center" bgcolor="#777" width="250px" height="250px" >
+		<table align="center" bgcolor="#aaa" width="250px" height="250px" >
 			<tr>
 				<td>
 					<strong>
@@ -19,7 +22,9 @@
 					</strong>
 				</td>
 				<td align="right">
-					<a href="user_reg.html"><font color="#fff">新用户注册</font></a>
+					<a href="user_reg.html">
+						<font color="#fff">新用户注册</font>
+					</a>
 				</td>
 			</tr>
 			<tr>
@@ -29,19 +34,35 @@
 				
 			</tr>
 			<tr>
-				<td colspan="2"><input type="text" name="uname" placeholder="请输入您的用户名"></td>
+				<td colspan="2">
+					<input type="text" name="uname" placeholder="请输入您的用户名">
+				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="password" name="upwd" placeholder="请输入您的密码"></td>
+				<td colspan="2">
+					<input type="password" name="upwd" placeholder="请输入您的密码">
+				</td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="yes" id="q1"><label for="q1"><font color="#fff">自动登入</font></label></td>
-				<td align="right"><a href=""><font color="#fff">忘记密码?</font></a></td>
+				<td>
+					<input type="checkbox" name="yes" id="q1">
+					<label for="q1">
+						<font color="#fff">自动登入</font>
+					</label>
+				</td>
+				<td align="right">
+					<a href="">
+						<font color="#fff">忘记密码?</font>
+					</a>
+				</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><button>登录</button></td>
+				<td colspan="2" align="center">
+					<button>登录</button>
+				</td>
 			</tr>
 		</table>
 	</form>
+	<iframe width="960px" src="./footer.html" frameborder="0" height="330px"></iframe>
 </body>
 </html>

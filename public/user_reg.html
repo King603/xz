@@ -1,8 +1,59 @@
-<h2>用户注册</h2>
-<form method="post" action="/user/reg">
-  用户:<input type="text" name="uname"><br>
-  密码:<input type="text" name="upwd"><br>
-  手机:<input type="text" name="phone"><br>
-  邮箱:<input type="text" name="email"><br>
-  <input type="submit">
-</form>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+	div{margin:0;padding:0;width:960px;margin: auto;}	
+</style>
+</head>
+
+<body>
+	<div><h1><img src="./img/header/logo.png" alt="">&nbsp;欢迎注册</h1></div>
+	<form method="post" action="/user/reg">
+		<table align="center">
+			<tr>
+				<td>新用户注册</td>
+				<td align="right"><a href="./user_login.html">直接注册</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>用户名:</td>
+				<td><input type="text" name="uname"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>登录密码:</td>
+				<td><input type="password" name="upwd"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>确认密码：</td>
+				<td><input type="password" name="upwd1"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>邮箱:</td>
+				<td><input type="text" name="email"><br></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>手机号:</td>
+				<td><input type="text" name="phone"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button>提交注册信息</button></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
