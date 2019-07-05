@@ -23,9 +23,9 @@ router.get("/get_login",(req,res)=>{
 		return;
 	}
 	//查询数据库，返回响应
-	var sql="select * from xz_user where uname=? and upwd=?";
+	var sql='select * from xz_user where uname=? and upwd=?';
 	pool.query(sql,[$uname,$upwd],(err,result)=>{
-		if(result.length>0) res.send("1");
+		if(result&&result.length>0)res.send("1");
 		else res.send("0");
 	});
 

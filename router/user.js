@@ -86,7 +86,7 @@ router.get('/list',(req,res)=>{
 	var start=(pno-1)*count;
 	//执行sql语句
 	pool.query('select * from xz_user limit ?,?',[start,count],(err,result)=>{
-		if(err)throw err;
+		//if(err)throw err;
 		res.send(result);
 	});
 });
