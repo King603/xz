@@ -54,19 +54,5 @@ router.get('/list',function(req,res){
 		res.send(result);
 	});
 });
-//4.删除商品
-router.get('/delete',function(req,res){
-	//获取数据
-	var obj=req.query;
-	if(!obj.lid){
-		res.send({code:401,msg:'lid requirer'});
-		return;
-	}
-	//执行SQL语句
-	pool.query('delete from xz_lapyop where lid=?',[obj.lid],functionm(err,result){
-		if(err)throw err;
-		if(result.affectedRows>0)res .send({code:200,msg:'del sur'});
-		else res.send ({code:201,msg'del err'});
-		});
-});
+
 module.exports=router;

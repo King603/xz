@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<button onClick="getAjax()">第一个ajax</button>
+	<script>
+		function getAjax(){
+			//获取xhr异步对象
+			var xhr=new XMLHttpRequest();
+				//4.绑定监听，接收响应
+				xhr.onreadystatechange=function(){
+					//onreadstatechang全程调用4次
+					//我们关注第4次
+					//目标是最后一次
+					if(xhr.readyState==4&&xhr.status==200){
+						//接收相应
+						var result=xhr.responseText;
+						alert(result);
+					}
+				}
+				//2.打开链接，创建请求
+				xhr.open("get","/demo/ajaxdemo",true);
+				//3.发送请求
+				xhr.send();
+		}
+	</script>
+</body>
+</html>

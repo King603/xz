@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<input type="text" id="uname"><br>
+	<input type="text" id="upwd"><br>
+	<button onclick="login()">登录</button>
+	<script>
+		function login(){
+			var $uname=uname.value;
+			var $upwd=upwd.value;
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var result=xhr.responseText;
+					if(result=="1")alert("登陆成功");
+					else if(result=="0") alert("登入失败");
+					else alert("未接收到用户信息")
+				}
+			}
+			xhr.open("get","/demo/get_login?uname="+$uname+"&upwd="+$upwd,true);
+			xhr.send();
+		}
+	</script>
+</body>
+</html>
