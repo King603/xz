@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<button onclick="getXML()">获取XML</button>
+		<script>
+			function getXML(){
+				var xhr=new XMLHttpRequest();
+				xhr.onreadystatechange=()=>{
+					if(xhr.readyState==4&&xhr.status==200){
+						var result=xhr.responseXML;
+						var studentlist=result.getElementsByTagName("studentlist");
+						var student=studentlist[0].getElementsByTagName("student");
+						var uname=student[1].getElementsByTagName("uname");
+						console.log(uname[0].innerHTML);
+					}
+				}
+				xhr.open("get","stus.xml",true);
+				xhr.send();
+			}
+		</script>
+	</body>
+</html>

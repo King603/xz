@@ -31,7 +31,7 @@ router.get("/get_login",(req,res)=>{
 	});
 });
 //3.result规则的登录
-router.get("/login/:uname&:upwd",(req,res)=>{
+router.get("/v1/login/:uname&:upwd",(req,res)=>{
 	//获取用户名和密码
 	var $uname=req.params.uname;
 	var $upwd=req.params.upwd;
@@ -61,6 +61,14 @@ router.post("/post_login",(req,res)=>{
 		if(err)throw err;
 		if(result.length>0)res.send("1");
 		else res.send("0");
+	});
+});
+//5.uselist,查询所有用户
+router.get("/userlist",(req,res)=>{
+	var sql="select * from xz_user";
+	pool.query(sql,(err,result)=>{
+		if(err)throw err;
+		res.send(result);
 	});
 });
 //导出路由器对象
