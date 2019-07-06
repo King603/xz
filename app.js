@@ -6,6 +6,7 @@ const bodyParser=require("body-parser");
 const userRouter=require("./router/user.js");
 //引入demo路由器模块
 const demoRouter=require("./router/demo.js");
+//引入pro路由器模块
 const proRouter=require("./router/pro.js");
 //创建web服务器
 var app=express();
@@ -22,4 +23,4 @@ app.use(bodyParser.urlencoded({
 app.use("/user",userRouter);
 //使用路由器，挂载到/demo下
 app.use("/demo",demoRouter);
-app.use("/v1",proRouter);
+app.use("/pro",proRouter);

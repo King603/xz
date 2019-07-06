@@ -8,7 +8,7 @@
 <body>
 	<input type="text" id="uname"><br>
 	<input type="text" id="upwd"><br>
-	<button onClick="login()">登录</button>
+	<button onclick="login()">登录</button>
 	<script>
 		function login(){
 			var $uname=uname.value;
@@ -22,14 +22,15 @@
 				alert("密码不存在");
 				return;
 			}
-			xhr.onreadystatechange=()=>{
+			xhr.onreadystatechange=function(){
 				if(xhr.readyState==4&&xhr.status==200){
 					var result=xhr.responseText;
-					if(result=="1")alert("1");
-					else alert("0");
+					if(result=="1")alert("登陆成功");
+					else if(result=="0") alert("登入失败");
+					else alert("未接收到用户信息")
 				}
 			}
-			xhr.open("get","/v1/login/"+$uname+"&"+$upwd,true);
+			xhr.open("get","/pro/V1/login/"+$uname+"&"+$upwd,true);
 			xhr.send();
 		}
 	</script>

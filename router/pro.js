@@ -6,7 +6,7 @@ const pool=require('../pool.js');
 var router=express.Router();
 //添加路由
 //1.登入接口
-router.get("/login/:uname&:upwd",(req,res)=>{
+router.get("/V1/login/:uname&:upwd",(req,res)=>{
 	//获取用户名和密码
 	var $uname=req.params.uname;
 	var $upwd=req.params.upwd;
