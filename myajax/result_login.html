@@ -8,22 +8,27 @@
 <body>
 	<input type="text" id="uname"><br>
 	<input type="text" id="upwd"><br>
-	<button onclick="login()">登录</button>
+	<button onClick="login()">登录</button>
 	<script>
 		function login(){
 			var $uname=uname.value;
 			var $upwd=upwd.value;
 			var xhr=new XMLHttpRequest();
-			xhr.onreadystatechange=function(){
+			if($uname==""){
+				alert("用户名不存在");
+				return;
+			}
+			if($upwd==""){
+				alert("密码不存在");
+				return;
+			}
+			xhr.onreadystatechange=()=>{
 				if(xhr.readyState==4&&xhr.status==200){
 					var result=xhr.responseText;
-					if(result=="1")alert("登陆成功");
-					else if(result=="0") alert("登入失败");
-					else alert("未接收到用户信息")
+					alert(result);
 				}
 			}
-			//xhr.open("get","/demo/get_login?uname="+$uname+"&upwd="+$upwd,true);
-			xhr.open("get","/demo/get_login/:"+$uname+"&"+$upwd,true);
+			xhr.open("get","/demo/login/"+$uname+"&"+$upwd,true);
 			xhr.send();
 		}
 	</script>

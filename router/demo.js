@@ -25,10 +25,43 @@ router.get("/get_login",(req,res)=>{
 	//查询数据库，返回响应
 	var sql='select * from xz_user where uname=? and upwd=?';
 	pool.query(sql,[$uname,$upwd],(err,result)=>{
-		if(result&&result.length>0)res.send("1");
+		if(err)throw err;
+		if(result.length>0)res.send("1");
 		else res.send("0");
 	});
-
+});
+//3.result规则的登录
+router.get("/login/:uname&:upwd",(req,res)=>{
+	//获取用户名和密码
+	var $uname=req.params.uname;
+	var $upwd=req.params.upwd;
+	console.log($uname+"   "+$upwd);
+		//查询数据库，返回响应
+	var sql='select * from xz_user where uname=? and upwd=?';
+	pool.query(sql,[$uname,$upwd],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0)res.send("1");
+		else res.send("0");
+	});
+});
+//4.post登录
+router.post("/post_login",(req,res)=>{
+	var $uname=req.body.uname;
+	var $upwd=req.body.upwd;
+	if(!$uname){
+		res.send("用户名为空");
+		return;
+	}
+	if(!$upwd){
+		res.send("密码为空");
+		return;
+	}
+	var sql="select * from xz_user where uname=? and upwd=?";
+	pool.query(sql,[$uname,$upwd],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0)res.send("1");
+		else res.send("0");
+	});
 });
 //导出路由器对象
 module.exports=router;
