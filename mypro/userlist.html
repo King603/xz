@@ -34,20 +34,20 @@
 								<th>操作</th>
 							</tr>
                     `;
-                    for(var i=$start;i<$start+$count;i++){
-                        if(arr[i].gender==1)var gender="男";
-                        else if(arr[i].gender==0)var gender="女";
+                    for(var i=0;i<$count;i++){
+                        if(arr[i+$start].gender==1)var gender="男";
+                        else if(arr[i+$start].gender==0)var gender="女";
                         else var gender="保密";
 						htmlstr+=`
 							<tr>
-								<td>${arr[i].uname}</td>
-								<td>${arr[i].email}</td>
-								<td>${arr[i].phone}</td>
-								<td>${arr[i].user_name}</td>
+								<td>${arr[i+$start].uname}</td>
+								<td>${arr[i+$start].email}</td>
+								<td>${arr[i+$start].phone}</td>
+								<td>${arr[i+$start].user_name}</td>
 								<td>${gender}</td>
 								<td>
-									<a href="javascript:deleteUser(${arr[i].uid})">删除</a>
-									<a href="javascript:updateUser(${arr[i].uid})">修改</a>
+									<a href="javascript:deleteUser(${arr[i+$start].uid})">删除</a>
+									<a href="javascript:updateUser(${arr[i+$start].uid})">修改</a>
 								</td>
 							</tr>	
 						`;
