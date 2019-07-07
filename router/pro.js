@@ -19,5 +19,20 @@ router.get("/V1/login/:uname&:upwd",(req,res)=>{
 		else res.send("0");
 	});
 });
+//2.用户列表
+router.get('/V1/list/:count&pno',(req,res)=>{
+	//获取数据
+	var obj=req.params;
+	if(!obj.count)obj.count=2;
+	if(!obj.pno)obj.pno=1;
+	var $count=parseInt(obj.count);
+	var $pno=parseInt(obj.pno);
+	var $start=($pno-1)*$count;
+	//执行sql语句
+	pool.query('select * from xz_user limit ?,?',[$start,$count],(err,result)=>{
+		if(err)throw err;
+		res.send(result);
+	});
+});
 //导出路由器对象
 module.exports=router;
