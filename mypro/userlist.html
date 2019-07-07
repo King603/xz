@@ -18,7 +18,7 @@
 			if(!$pno)$pno=1;
 			var $start=($pno-1)*$count;
             var xhr=new XMLHttpRequest();
-            xhr.onreadystatechange=function(){
+            xhr.onreadystatechange=()=>{
                 if(xhr.readyState==4&&xhr.status==200){
 					var result=xhr.responseText;
                     //json解析，解析结果是一个对象数组
