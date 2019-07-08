@@ -81,7 +81,8 @@ router.post("/V1/reg",(req,res)=>{
 	//执行SQL语句
 	pool.query('insert into xz_user set ?',[obj],(err,result)=>{
 		if(err)throw err;
-		if(result.affectedRows>0)res.send({code:200,msg:'reg suc'});
+		if(result.affectedRows>0)res.send("1");
+		else res.send("0");
 	});
 });
 //导出路由器对象

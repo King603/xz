@@ -7,16 +7,22 @@
             function regUser(){
                 var $uname=uname.value;
                 var $upwd=upwd.value;
+                if($upwd.length<6){alert("密码小于6位数");return;}
+                var $cupwd=cupwd.value;
+                if($upwd!==$cupwd){alert("密码不一致");return;}
                 var $email=email.value;
                 var $phone=phone.value;
+                
                 var xhr=new XMLHttpRequest();
                 xhr.onreadystatechange=()=>{
                     if(xhr.readyState==4&&xhr.status==200){
                         var result=xhr.responseText;
-                        alert(result);
+                        if(result==1)alert("注册成功");
+                        else if(result==0)alert("注册失败");
+                        else alert("未接收到用户信息")
                     }
                 }
-                xhr.open("get","/pro/V1/reg",true);
+                xhr.open("get","/pro/V1/reg"+$uname+"&"+$upwd+"&"+$email+"&"+$phone,true);
                 xhr.send();
             }
         </script>
@@ -27,6 +33,6 @@
         <input type="text" id="cupwd" placeholder="请确认您的用户密码"><br>
         <input type="email" id="email" placeholder="请输入您的验证邮箱"><br>
         <input type="text" id="phone" placeholder="请输入您的联系电话"><br>
-        <button>提交</button>
+        <input type="button" value="提交">
     </body>
 </html>
