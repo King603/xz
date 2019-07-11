@@ -1,7 +1,7 @@
 {
   "name": "day02",
   "version": "1.0.0",
-  "description": "",
+  "description": "学子商城",
   "main": "02_1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +12,14 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.17.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/King603/xz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/King603/xz/issues"
+  },
+  "homepage": "https://github.com/King603/xz#readme"
 }

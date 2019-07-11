@@ -1,0 +1,42 @@
+
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
+a{text-decoration:none;color:#fff;font-size: 12px;}
+#d1{
+    height: 561px;width: 960px;
+    margin: 0 auto;
+    background: url(../img/register/bg.png);
+}
+#d1 div{
+    width: 280px;height: 297px;
+    margin-top: 150px;
+    margin-left: 600px;
+    background-color: rgba(0,0,0,0.5);
+    padding:5px;
+}
+#d1 table{width: 100%;}
+#d1 table th{
+    color: #fff;margin: 10px 0;
+    text-align: left;
+}
+#uname,#upwd{
+    height: 38px;width: 100%;
+    background:#fff url(img/login/yhm.png) no-repeat 97% center;
+    box-sizing:100%;margin: 10px 1px;
+    box-sizing: border-box;padding:5px 10px;
+    border: 0;outline: 0;
+}
+#upwd{
+    background-image: url(img/login/mm.png);
+}
+#d1 label{
+    color: #fff;
+    font-size: 12px;
+}
+button{
+    width: 100%;height: 37px;
+    background-image: linear-gradient(45deg,#f00,#ff0,#0f0 ,#0ff,#00f,#f0f,#f00);
+    margin-top: 10px;
+    color: #fff;
+    font:bold "黑体";
+    outline: 0;
+}

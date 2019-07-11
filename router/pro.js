@@ -10,7 +10,6 @@ router.get("/V1/login/:uname&:upwd",(req,res)=>{
 	//获取用户名和密码
 	var $uname=req.params.uname;
 	var $upwd=req.params.upwd;
-	console.log($uname+"   "+$upwd);
 	//查询数据库，返回响应
 	var sql='select * from xz_user where uname=? and upwd=?';
 	pool.query(sql,[$uname,$upwd],(err,result)=>{

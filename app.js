@@ -16,6 +16,7 @@ app.listen(8080);
 app.use(express.static("public"));
 app.use(express.static('myajax'));
 app.use(express.static('mypro'));
+app.use(express.static("my"));
 app.use(bodyParser.urlencoded({
 	extended:false
 }));
