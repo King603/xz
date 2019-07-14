@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>无标题文档</title>
+    </head>
+    <body>
+        <h2>用户列表</h2>
+        大小：<input type="text" id="count"><br>
+        页码：<input type="text" id="pno"><br>
+        <div id="d1"></div>
+        <button onclick="show()">提交</button>
+        <script>
+            function show(){
+                var $count=count.value;
+                var $pno=pno.value;
+                if(!$count)$count=2;
+                if(!$pno)$pno=1;
+                var $start=($pno-1)*$count;
+                var xhr=new XMLHttpRequest();
+                xhr.onreadystatechange=()=>{
+                    if(xhr.readyState==4&&xhr.status==200){
+                        var result=xhr.responseText;
+                        //json解析，解析结果是一个对象数组
+                        var arr=JSON.parse(result);
+                        console.log(arr);
+                        var htmlstr=`
+                            <table border="1px" width="800px">
+                                <tr>
+                                    <th>编号</th>
+                                    <th>型号</th>
+                                    <th>主标题</th>
+                                    <th>规格</th>
+                                    <th>单价</th>
+                                    <th>操作</th>
+                                </tr>
+                        `;
+                        for(var i=0;i<$count;i++){
+                            htmlstr+=`
+                                <tr>
+                                    <td>${arr[i+$start].family_id}</td>
+                                    <td>${arr[i+$start].lname}</td>
+                                    <td>${arr[i+$start].title}</td>
+                                    <td>${arr[i+$start].spec}</td>
+                                    <td>${arr[i+$start].price}</td>
+                                    <td>
+                                        <a href="javascript:deletelaptop(${arr[i+$start].lid})">删除</a>
+                                        <a href="queryproduct.html?uid=${arr[i+$start].lid}">修改</a>
+                                    </td>
+                                </tr>	
+                            `;
+                        }
+                        htmlstr+=`</table>`;
+                        d1.innerHTML=htmlstr;  
+                    }
+                }
+                xhr.open("get","/pro/V1/product_list",true);
+                xhr.send();
+            }
+            function deletelaptop($lid){
+                    var xhr=new XMLHttpRequest();
+                    xhr.onreadystatechange=()=>{
+                        if(xhr.readyState==4&&xhr.status==200){
+                            var result=xhr.responseText;
+                            if(result==1){
+                                alert("删除成功");
+                                show();
+                            }else alert("删除失败");
+                        }
+                    }
+                    xhr.open("delete","/pro/V1/dellaptop/"+$lid,true);
+                    xhr.send();
+                }
+        </script>
+    </body>
+</html>

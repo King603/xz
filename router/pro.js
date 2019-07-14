@@ -19,15 +19,15 @@ router.get("/V1/login/:uname&:upwd",(req,res)=>{
 	});
 });
 //2.用户列表
-router.get('/V1/alluserlist',(req,res)=>{
+router.get('/V1/list',(req,res)=>{
 	//执行sql语句
 	pool.query('select * from xz_user',(err,result)=>{
 		if(err)throw err;
 		res.send(result);
 	});
 });
-//3.用户列表分页查询
-router.get('/V1/list/:count&pno',(req,res)=>{
+//3.商品列表分页查询
+router.get('/V1/product_list',(req,res)=>{
 	//获取数据
 	var obj=req.params;
 	if(!obj.count)obj.count=2;
@@ -35,8 +35,9 @@ router.get('/V1/list/:count&pno',(req,res)=>{
 	var $count=parseInt(obj.count);
 	var $pno=parseInt(obj.pno);
 	var $start=($pno-1)*$count;
+
 	//执行sql语句
-	pool.query('select * from xz_user limit ?,?',[$start,$count],(err,result)=>{
+	pool.query('select * from xz_laptop ',(err,result)=>{
 		if(err)throw err;
 		res.send(result);
 	});
@@ -47,8 +48,7 @@ router.delete("/V1/deluser/:uid",(req,res)=>{
 	if(!$uid){res.render("未找到");return;}
 	pool.query("delete from xz_user where uid=?",[$uid],(err,result)=>{
 		if(err)throw err;
-		if(result.affecterRows>0)res.send("1");
-		else res.send("0");
+		res.send("1");
 	});
 });
 //5.根据uid查询用户
@@ -82,6 +82,26 @@ router.post("/V1/reg",(req,res)=>{
 		if(err)throw err;
 		if(result.affectedRows>0)res.send("1");
 		else res.send("0");
+	});
+});
+//6.修改商品信息
+router.put("/V1/queryproduct",(req,res)=>{
+	var obj=req.body;
+	var $lid=obj.lid;
+	delete obj.lid;
+	var sql="update xz_laptop set ?where lid=?";
+	pool.query(sql,[obj,$lid],(err,result)=>{
+		if(err)throw err;
+		res.send("1");
+	});
+});
+//7.根据lid删除商品
+router.delete("/V1/dellaptop/:lid",(req,res)=>{
+	var $lid=req.params.lid;
+	if(!$lid){res.render("未找到");return;}
+	pool.query("delete from xz_laptop where lid=?",[$lid],(err,result)=>{
+		if(err)throw err;
+		res.send("1");
 	});
 });
 //导出路由器对象

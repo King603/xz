@@ -2,15 +2,15 @@
 blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
 a{text-decoration:none;color:#fff;font-size: 12px;}
 #d1{
-    height: 561px;width: 960px;
+    height: 561px;width: 1000px;
     margin: 0 auto;
     background: url(../img/register/bg.png);
 }
 #d1 div{
-    width: 280px;height: 297px;
-    margin-top: 150px;
-    margin-left: 600px;
-    background-color: rgba(0,0,0,0.5);
+    width: 280px;height: 250px;
+    margin-top: 180px;
+    margin-left: 650px;
+    background-color: rgba(0,0,0,0.3);
     padding:5px;
 }
 #d1 table{width: 100%;}

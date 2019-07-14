@@ -22,17 +22,17 @@
                         else alert("未接收到用户信息")
                     }
                 }
-                xhr.open("get","/pro/V1/reg"+$uname+"&"+$upwd+"&"+$email+"&"+$phone,true);
+                xhr.open("post","/pro/V1/reg/"+$uname+"&"+$upwd+"&"+$email+"&"+$phone,true);
                 xhr.send();
             }
         </script>
     </head>
-    <body onload="regUser()">
+    <body>
         <input type="text" id="uname" placeholder="请输入您的用户名"><br>
         <input type="text" id="upwd" placeholder="请输入您的用户密码"><br>
         <input type="text" id="cupwd" placeholder="请确认您的用户密码"><br>
         <input type="email" id="email" placeholder="请输入您的验证邮箱"><br>
         <input type="text" id="phone" placeholder="请输入您的联系电话"><br>
-        <input type="button" value="提交">
+        <input type="button" value="提交" onclick="regUser()">
     </body>
 </html>

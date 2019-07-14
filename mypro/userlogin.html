@@ -23,7 +23,7 @@
 				alert("密码不存在");
 				return;
 			}
-			xhr.onreadystatechange=function(){
+			xhr.onreadystatechange=()=>{
 				if(xhr.readyState==4&&xhr.status==200){
 					var result=xhr.responseText;
 					if(result=="1")alert("登陆成功");
